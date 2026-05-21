@@ -1,0 +1,39 @@
+## Visual Studio Build Outputs
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Visual Studio Cache/Setup files
+.vs/
+.vscode/
+*.patch
+*.diff
+
+## NuGet Packages
+*.nupkg
+# Includes NuGet's restored packages
+**/packages/*
+# Except build/ folder which is used by some projects
+!**/packages/build/
+
+## Roslyn cache directories
+*.ltx
+
+## Common OS files
+.DS_Store
+Thumbs.db
+
+## Environment Secrets (Best practice for C#)
+appsettings.Development.json
+.env
