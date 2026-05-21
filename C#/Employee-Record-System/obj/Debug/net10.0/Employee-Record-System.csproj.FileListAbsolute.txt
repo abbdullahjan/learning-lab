@@ -1,0 +1,15 @@
+D:\Field\Learning_lab\C#\Employee-Record-System\bin\Debug\net10.0\Employee-Record-System.exe
+D:\Field\Learning_lab\C#\Employee-Record-System\bin\Debug\net10.0\Employee-Record-System.deps.json
+D:\Field\Learning_lab\C#\Employee-Record-System\bin\Debug\net10.0\Employee-Record-System.runtimeconfig.json
+D:\Field\Learning_lab\C#\Employee-Record-System\bin\Debug\net10.0\Employee-Record-System.dll
+D:\Field\Learning_lab\C#\Employee-Record-System\bin\Debug\net10.0\Employee-Record-System.pdb
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\Employee-Record-System.GeneratedMSBuildEditorConfig.editorconfig
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\Employee-Record-System.AssemblyInfoInputs.cache
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\Employee-Record-System.AssemblyInfo.cs
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\Employee-Record-System.csproj.CoreCompileInputs.cache
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\Employee-Record-System.sourcelink.json
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\Employee-Record-System.dll
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\refint\Employee-Record-System.dll
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\Employee-Record-System.pdb
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\Employee-Record-System.genruntimeconfig.cache
+D:\Field\Learning_lab\C#\Employee-Record-System\obj\Debug\net10.0\ref\Employee-Record-System.dll
