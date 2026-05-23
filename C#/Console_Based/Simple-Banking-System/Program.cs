@@ -10,7 +10,7 @@ namespace SimpleBankingSystem
     {
         static void Main(string[] args)
         {
-            double balance = 1000; // initial balance
+            double balance = 1000;
             int choice = 0;
 
             Console.WriteLine("===== SIMPLE BANKING SYSTEM =====");
@@ -22,7 +22,8 @@ namespace SimpleBankingSystem
                     Console.WriteLine("\n1. Check Balance");
                     Console.WriteLine("2. Deposit Money");
                     Console.WriteLine("3. Withdraw Money");
-                    Console.WriteLine("4. Exit");
+                    Console.WriteLine("4. Split Money Among People");
+                    Console.WriteLine("5. Exit");
 
                     Console.Write("\nEnter choice: ");
                     choice = Convert.ToInt32(Console.ReadLine());
@@ -67,6 +68,10 @@ namespace SimpleBankingSystem
                     }
                     else if (choice == 4)
                     {
+                        SplitMoney(ref balance);
+                    }
+                    else if (choice == 5)
+                    {
                         Console.WriteLine("Exiting system...");
                         break;
                     }
@@ -77,15 +82,35 @@ namespace SimpleBankingSystem
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Error: Please enter numeric values only.");
+                    Console.WriteLine("\n==================================");
+                    Console.WriteLine("           INPUT ERROR            ");
+                    Console.WriteLine("==================================");
+                    Console.WriteLine(" Please enter numeric values only ");
+                    Console.WriteLine("==================================\n");
                 }
                 catch (OverflowException)
                 {
-                    Console.WriteLine("Error: Number too large!");
+                    Console.WriteLine("\n==================================");
+                    Console.WriteLine("         OVERFLOW ERROR           ");
+                    Console.WriteLine("==================================");
+                    Console.WriteLine(" Number is too large to process   ");
+                    Console.WriteLine("==================================\n");
+                }
+                catch (DivideByZeroException)
+                {
+                    Console.WriteLine("\n==================================");
+                    Console.WriteLine("       DIVIDE BY ZERO ERROR       ");
+                    Console.WriteLine("==================================");
+                    Console.WriteLine(" Number of people cannot be zero  ");
+                    Console.WriteLine("==================================\n");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Unexpected error: " + ex.Message);
+                    Console.WriteLine("\n==================================");
+                    Console.WriteLine("        SYSTEM ERROR              ");
+                    Console.WriteLine("==================================");
+                    Console.WriteLine(" " + ex.Message);
+                    Console.WriteLine("==================================\n");
                 }
                 finally
                 {
@@ -95,6 +120,44 @@ namespace SimpleBankingSystem
 
             Console.WriteLine("System Closed.");
             Console.ReadKey();
+        }
+
+        // ---------------- SPLIT MONEY FUNCTION ----------------
+        static void SplitMoney(ref double balance)
+        {
+            Console.Write("Enter total amount to split: ");
+            double amount = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter number of people: ");
+            int people = Convert.ToInt32(Console.ReadLine());
+
+            if (people == 0)
+            {
+                throw new DivideByZeroException();
+            }
+
+            if (people < 0)
+            {
+                throw new Exception("Number of people cannot be negative.");
+            }
+
+            if (amount <= 0)
+            {
+                Console.WriteLine("Invalid amount!");
+                return;
+            }
+
+            if (amount > balance)
+            {
+                Console.WriteLine("Insufficient balance!");
+                return;
+            }
+
+            double share = amount / people;
+            balance -= amount;
+
+            Console.WriteLine($"Each person gets: {share}");
+            Console.WriteLine("Money split successfully!");
         }
     }
 }
