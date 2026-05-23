@@ -22,6 +22,7 @@ namespace DelegateDemo
         // Method 2
         static void CheckResult(string name, int marks)
         {
+            Console.WriteLine("In Method 2_CheckResult");
             if (marks >= 50)
             {
                 Console.WriteLine("Result       : PASS");
@@ -35,6 +36,7 @@ namespace DelegateDemo
         // Method 3
         static void GiveMessage(string name, int marks)
         {
+            Console.WriteLine("In Method 3_Give Message");
             if (marks >= 50)
             {
                 Console.WriteLine("Message      : Congratulations!");
@@ -48,6 +50,7 @@ namespace DelegateDemo
         // Method 4
         static void ShowGrade(string name, int marks)
         {
+            Console.WriteLine("In Method 4_Show Grade");
             if (marks >= 80)
             {
                 Console.WriteLine("Grade        : A");
@@ -69,6 +72,7 @@ namespace DelegateDemo
         // Method 5
         static void ScholarshipStatus(string name, int marks)
         {
+            Console.WriteLine("In Method 5_Scholorship status");
             if (marks >= 85)
             {
                 Console.WriteLine("Scholarship  : Eligible");
