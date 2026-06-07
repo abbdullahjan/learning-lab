@@ -10,7 +10,7 @@ namespace TextAnalyzer
 
             Console.WriteLine("===== SIMPLE TEXT ANALYZER =====");
             Console.Write("Enter text: ");
-            text = Console.ReadLine();
+            text = Console.ReadLine() ?? string.Empty;
 
             while (true)
             {
@@ -23,18 +23,21 @@ namespace TextAnalyzer
                 Console.WriteLine("6. Exit");
 
                 Console.Write("\nEnter choice: ");
-                int choice = Convert.ToInt32(Console.ReadLine());
+                if (!int.TryParse(Console.ReadLine(), out int choice))
+                {
+                    choice = 0;
+                }
 
                 if (choice == 1)
                 {
-                    string[] words = text.Split(' ');
+                    string[] words = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                     Console.WriteLine("Word Count: " + words.Length);
                 }
 
                 else if (choice == 2)
                 {
                     Console.Write("Enter word: ");
-                    string word = Console.ReadLine();
+                    string word = Console.ReadLine() ?? string.Empty;
 
                     if (text.Contains(word))
                         Console.WriteLine("Found!");
@@ -45,10 +48,10 @@ namespace TextAnalyzer
                 else if (choice == 3)
                 {
                     Console.Write("Old word: ");
-                    string oldWord = Console.ReadLine();
+                    string oldWord = Console.ReadLine() ?? string.Empty;
 
                     Console.Write("New word: ");
-                    string newWord = Console.ReadLine();
+                    string newWord = Console.ReadLine() ?? string.Empty;
 
                     text = text.Replace(oldWord, newWord);
 
