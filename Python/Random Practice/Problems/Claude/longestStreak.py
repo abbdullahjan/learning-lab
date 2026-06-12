@@ -21,4 +21,4 @@ def longestStreak(num):
 
     return longest    
 
-print(longestStreak([100, 4, 200, 1, 3, 2]))
+print(longestStreak([1,2,3,4]))
