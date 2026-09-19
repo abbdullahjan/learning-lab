@@ -58,6 +58,3 @@ class Solution(object):
 
             else:
                 right -= 1
-
-s = Solution()
-print(s.twoSum([0,0,3,4],0))

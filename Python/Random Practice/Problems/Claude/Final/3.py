@@ -24,4 +24,3 @@ def areAnagments2(stra, strb):
         if i != str2[index]:
             return False
     return True        
-print(areAnagments2("listen", "silent"))

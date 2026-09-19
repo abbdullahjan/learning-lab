@@ -119,11 +119,3 @@ def solution(description):
 solution(description)
 
 
-        
-
-
-
-
-
-
-

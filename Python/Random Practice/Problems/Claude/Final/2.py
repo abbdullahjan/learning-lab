@@ -10,5 +10,6 @@ def remDuplicate(num):
     for i in fre:
         num.append(i)
     return num    
-    
-print(remDuplicate([3, 1, 2, 1, 3, 4]))    
+
+for i in range(100):
+    print(remDuplicate([3, 1, 2, 1, 3, 4]))    

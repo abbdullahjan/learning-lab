@@ -14,7 +14,7 @@ def fre(str):
     if len(freq) > 2 and freq.most_common(1)[0][1] == freq.most_common(2)[1][1]:
         smallest = freq.most_common(1)[0][0] 
         for i,j in freq.most_common():
-            print(f"i:{i}, h:{j} smallest:{smallest} common:{freq.most_common(1)[0][1]}")
+            # print(f"i:{i}, h:{j} smallest:{smallest} common:{freq.most_common(1)[0][1]}")
             if j != freq.most_common(1)[0][1]:
                 break
             smallest = min(smallest, i )
