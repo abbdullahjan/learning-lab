@@ -1,0 +1,359 @@
+<Window x:Class="Assignment2_Form.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment2_Form"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="5.5*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11.5*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="4.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#7E57C2" Offset="0.0"/>
+                    <GradientStop Color="#1E88E5" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            
+            <!-- Left Side: Graduation Cap and Title/Subtitle -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0,0,0">
+                <TextBlock Text="🎓" FontSize="36" VerticalAlignment="Center" FontFamily="Segoe UI Emoji" Margin="0,0,15,0"/>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="STUDENT REGISTRATION" FontSize="22" FontWeight="Bold" Foreground="White" FontFamily="Segoe UI"/>
+                    <TextBlock Text="Manage Student Information" FontSize="13" Foreground="#E3F2FD" FontFamily="Segoe UI" Margin="0,2,0,0"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Right Side: Calendar Icon and Date/Time -->
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,20,0">
+                <TextBlock Text="📅" FontSize="28" VerticalAlignment="Center" FontFamily="Segoe UI Emoji" Margin="0,0,12,0"/>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock x:Name="DateTextBlock" Text="Friday, 9 May 2025" FontSize="13" FontWeight="SemiBold" Foreground="White" FontFamily="Segoe UI"/>
+                    <TextBlock x:Name="TimeTextBlock" Text="10:30:45 AM" FontSize="12" Foreground="#E3F2FD" FontFamily="Segoe UI" Margin="0,2,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        
+        <!-- Profile Picture Card (Grid.Column="1", Grid.Row="1") -->
+        <Border Grid.Column="1" Grid.Row="1" Margin="5" Background="White" CornerRadius="5" BorderBrush="#E0E0E0" BorderThickness="1">
+            <StackPanel Margin="8">
+                <!-- Card Header (Simple Border with text) -->
+                <Border Background="#7E57C2" CornerRadius="3" Padding="5" Margin="0,0,0,5">
+                    <TextBlock Text="👤 PROFILE PICTURE" Foreground="White" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Border>
+                
+                <!-- Image Frame (Simple light blue Border with an emoji) -->
+                <Border BorderBrush="#B3E5FC" BorderThickness="1" CornerRadius="5" Background="#E1F5FE" Width="85" Height="85" Margin="0,0,0,5">
+                    <TextBlock Text="👤" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                
+                <!-- Browse Button (Standard WPF Button, styled simply) -->
+                <Button Content="Browse Image" Background="#7E57C2" Foreground="White" Width="90" Height="24" FontSize="10" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"/>
+            </StackPanel>
+        </Border>
+        
+        <!-- Address & Quick Actions Column (Grid.Column="2", Grid.Row="1") -->
+        <Grid Grid.Column="2" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <!-- Address Card (Row 0) -->
+            <Border Grid.Row="0" Margin="5" Background="White" CornerRadius="5" BorderBrush="#E0E0E0" BorderThickness="1">
+                <StackPanel Margin="6">
+                    <!-- Card Header (Simple green Border with text) -->
+                    <Border Background="#00C853" CornerRadius="3" Padding="4" Margin="0,0,0,5">
+                        <TextBlock Text="📍 ADDRESS" Foreground="White" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    </Border>
+                    <!-- Address Input Box (Compact Height) -->
+                    <TextBox Height="45" BorderBrush="#CCCCCC" BorderThickness="1" Padding="3"
+                             AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+                             Text="Enter complete address here..." Foreground="Gray" FontSize="10" FontFamily="Segoe UI"/>
+                </StackPanel>
+            </Border>
+            
+            <!-- Quick Actions Card (Row 1) -->
+            <Border Grid.Row="1" Margin="5" Background="White" CornerRadius="5" BorderBrush="#E0E0E0" BorderThickness="1">
+                <StackPanel Margin="6">
+                    <!-- Card Header (Simple orange Border with text) -->
+                    <Border Background="#FFB300" CornerRadius="3" Padding="4" Margin="0,0,0,5">
+                        <TextBlock Text="⚡ QUICK ACTIONS" Foreground="White" FontSize="10" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    </Border>
+                    
+                    <!-- 2x2 Grid of Action Buttons (Compact Height) -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- Row 0: Save & Update -->
+                        <Button Grid.Row="0" Grid.Column="0" Content="💾 Save" Background="#00C853" Foreground="White" Height="22" Margin="2" BorderThickness="0" FontSize="10" FontWeight="SemiBold" Cursor="Hand"/>
+                        <Button Grid.Row="0" Grid.Column="1" Content="📝 Update" Background="#00B0FF" Foreground="White" Height="22" Margin="2" BorderThickness="0" FontSize="10" FontWeight="SemiBold" Cursor="Hand"/>
+                        
+                        <!-- Row 1: Delete & Clear -->
+                        <Button Grid.Row="1" Grid.Column="0" Content="🗑️ Delete" Background="#FF1744" Foreground="White" Height="22" Margin="2" BorderThickness="0" FontSize="10" FontWeight="SemiBold" Cursor="Hand"/>
+                        <Button Grid.Row="1" Grid.Column="1" Content="🔄 Clear" Background="#7E57C2" Foreground="White" Height="22" Margin="2" BorderThickness="0" FontSize="10" FontWeight="SemiBold" Cursor="Hand"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Student Information Card (Grid.Column="0", Grid.Row="1") -->
+        <Border Grid.Column="0" Grid.Row="1" Margin="5" Background="White" CornerRadius="5" BorderBrush="#E0E0E0" BorderThickness="1">
+            <StackPanel Margin="6">
+                <!-- Card Header (Simple blue Border with text) -->
+                <Border Background="#0091EA" CornerRadius="3" Padding="4" Margin="0,0,0,5">
+                    <TextBlock Text="👤 STUDENT INFORMATION" Foreground="White" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Border>
+                
+                <!-- Main Fields Grid -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.25*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Left Side Column -->
+                    <StackPanel Grid.Column="0" Margin="0,0,8,0">
+                        <!-- Student ID -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="👤 Student ID" FontSize="10" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="STU-2025-001" Height="19" FontSize="10" VerticalContentAlignment="Center"/>
+                        </Grid>
+                        
+                        <!-- Full Name -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="👤 Full Name" FontSize="10" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="Enter full name" Foreground="Gray" Height="19" FontSize="10" VerticalContentAlignment="Center"/>
+                        </Grid>
+                        
+                        <!-- Father Name -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="👤 Father Name" FontSize="10" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="Enter father name" Foreground="Gray" Height="19" FontSize="10" VerticalContentAlignment="Center"/>
+                        </Grid>
+                        
+                        <!-- Email -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="✉️ Email" FontSize="10" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="Enter email address" Foreground="Gray" Height="19" FontSize="10" VerticalContentAlignment="Center"/>
+                        </Grid>
+                        
+                        <!-- Phone -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="📞 Phone" FontSize="10" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1" Text="Enter phone number" Foreground="Gray" Height="19" FontSize="10" VerticalContentAlignment="Center"/>
+                        </Grid>
+                        
+                        <!-- Date of Birth -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="📅 DOB" FontSize="10" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Column="1" SelectedIndex="0" Height="19" FontSize="10" VerticalContentAlignment="Center">
+                                <ComboBoxItem Content="Select date"/>
+                            </ComboBox>
+                        </Grid>
+                        
+                        <!-- Gender -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="🚻 Gender" FontSize="10" VerticalAlignment="Center"/>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                <RadioButton Content="Male" IsChecked="True" FontSize="9.5" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                                <RadioButton Content="Female" FontSize="9.5" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                    
+                    <!-- Right Side Column -->
+                    <StackPanel Grid.Column="1">
+                        <!-- Department -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="🏛️ Dept" FontSize="10" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Column="1" SelectedIndex="0" Height="19" FontSize="10" VerticalContentAlignment="Center">
+                                <ComboBoxItem Content="Computer Science"/>
+                                <ComboBoxItem Content="Software Engineering"/>
+                                <ComboBoxItem Content="Information Technology"/>
+                            </ComboBox>
+                        </Grid>
+                        
+                        <!-- Semester -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="🎓 Sem" FontSize="10" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Column="1" SelectedIndex="0" Height="19" FontSize="10" VerticalContentAlignment="Center">
+                                <ComboBoxItem Content="5th Semester"/>
+                                <ComboBoxItem Content="1st Semester"/>
+                                <ComboBoxItem Content="3rd Semester"/>
+                                <ComboBoxItem Content="7th Semester"/>
+                            </ComboBox>
+                        </Grid>
+                        
+                        <!-- Blood Group -->
+                        <Grid Margin="0,1.5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="🩸 Blood" FontSize="10" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Column="1" SelectedIndex="0" Height="19" FontSize="10" VerticalContentAlignment="Center">
+                                <ComboBoxItem Content="Select Blood Group"/>
+                                <ComboBoxItem Content="A+"/>
+                                <ComboBoxItem Content="B+"/>
+                                <ComboBoxItem Content="O+"/>
+                                <ComboBoxItem Content="AB+"/>
+                            </ComboBox>
+                        </Grid>
+                        
+                        <!-- Skills Box -->
+                        <TextBlock Text="⚙️ Skills" FontSize="10" Margin="0,1,0,1"/>
+                        <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="3" Padding="4" Height="58">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <CheckBox Grid.Row="0" Grid.Column="0" Content="C#" FontSize="9" VerticalAlignment="Center"/>
+                                <CheckBox Grid.Row="0" Grid.Column="1" Content="Python" FontSize="9" VerticalAlignment="Center"/>
+                                <CheckBox Grid.Row="1" Grid.Column="0" Content="Java" FontSize="9" VerticalAlignment="Center"/>
+                                <CheckBox Grid.Row="1" Grid.Column="1" Content="SQL" FontSize="9" VerticalAlignment="Center"/>
+                                <CheckBox Grid.Row="2" Grid.Column="0" Content="Web Dev" FontSize="9" VerticalAlignment="Center"/>
+                                <CheckBox Grid.Row="2" Grid.Column="1" Content="Data Struct" FontSize="9" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <!-- Registered Students Card (Grid.Column="0", Grid.Row="2", Grid.ColumnSpan="2") -->
+        <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" Background="White" CornerRadius="5" BorderBrush="#E0E0E0" BorderThickness="1">
+            <StackPanel Margin="6">
+                <!-- Card Header (Simple blue Border with text) -->
+                <Border Background="#1976D2" CornerRadius="3" Padding="4" Margin="0,0,0,5">
+                    <TextBlock Text="👥 REGISTERED STUDENTS" Foreground="White" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </Border>
+                <!-- DataGrid (Simple, auto-populates from code-behind) -->
+                <DataGrid x:Name="StudentsDataGrid" AutoGenerateColumns="True" IsReadOnly="True" 
+                          BorderThickness="1" BorderBrush="#E0E0E0" Background="White" FontSize="9.5" Height="80"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Search & Filter Column (Grid.Column="2", Grid.Row="2") -->
+        <Grid Grid.Column="2" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <!-- Search Student Card (Row 0) -->
+            <Border Grid.Row="0" Margin="5" Background="White" CornerRadius="5" BorderBrush="#E0E0E0" BorderThickness="1">
+                <StackPanel Margin="6">
+                    <!-- Card Header (Simple teal Border with text) -->
+                    <Border Background="#00ACC1" CornerRadius="3" Padding="4" Margin="0,0,0,5">
+                        <TextBlock Text="🔍 SEARCH STUDENT" Foreground="White" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    </Border>
+                    <!-- Search Input Box and Button -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox BorderBrush="#CCCCCC" BorderThickness="1" Padding="3" Height="22" VerticalContentAlignment="Center"
+                                 Text="Search by ID, Name or Phone..." Foreground="Gray" FontSize="10" FontFamily="Segoe UI"/>
+                        <Button Grid.Column="1" Content="🔍" Background="#00ACC1" Foreground="White" Width="26" Height="22" Margin="3,0,0,0" BorderThickness="0" Cursor="Hand"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            
+            <!-- Filter by Department Card (Row 1) -->
+            <Border Grid.Row="1" Margin="5" Background="White" CornerRadius="5" BorderBrush="#E0E0E0" BorderThickness="1">
+                <StackPanel Margin="6">
+                    <!-- Card Header (Simple pink Border with text) -->
+                    <Border Background="#E91E63" CornerRadius="3" Padding="4" Margin="0,0,0,5">
+                        <TextBlock Text="▼ FILTER BY DEPARTMENT" Foreground="White" FontSize="10" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    </Border>
+                    <!-- Filter ComboBox -->
+                    <ComboBox SelectedIndex="0" Height="22" FontSize="10" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="All Departments"/>
+                        <ComboBoxItem Content="Computer Science"/>
+                        <ComboBoxItem Content="Software Engineering"/>
+                        <ComboBoxItem Content="Information Technology"/>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Footer Panel (Grid.Column="0", Grid.Row="3", Grid.ColumnSpan="3") -->
+        <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Background="#E3F2FD" Margin="0,2,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="© 2025 Student Registration System. All rights reserved." Foreground="#1E88E5" FontSize="10" VerticalAlignment="Center" Margin="15,0,0,0"/>
+            <TextBlock Grid.Column="1" Text="Total Students: 5 👥" Foreground="#1E88E5" FontSize="10" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0"/>
+        </Grid>
+        
+    </Grid>
+</Window>

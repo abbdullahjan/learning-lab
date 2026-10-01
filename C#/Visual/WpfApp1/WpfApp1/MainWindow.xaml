@@ -1,0 +1,290 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Student Registration System" Height="750" Width="1100" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- Button Styles -->
+        <Style x:Key="ActionButton" TargetType="Button">
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <Border Grid.Row="0" Background="#2196F3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Logo and Title -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="30,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="🎓" FontSize="60" Margin="0,0,20,0"/>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="STUDENT REGISTRATION" FontSize="28" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock Text="Manage Student Information" FontSize="14" Foreground="#E3F2FD" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+                
+                <!-- Date/Time Display -->
+                <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
+                    <Border Background="#1976D2" Padding="15,10" CornerRadius="5">
+                        <StackPanel>
+                            <TextBlock x:Name="DateDisplay" Text="Friday, 9 May 2025" Foreground="White" FontWeight="SemiBold" FontSize="12"/>
+                            <TextBlock x:Name="TimeDisplay" Text="10:30:45 AM" Foreground="White" FontSize="11" HorizontalAlignment="Center" Margin="0,3,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Main Content Area -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Section: Student Information Form -->
+            <Border Grid.Column="0" Background="White" CornerRadius="5" Margin="5" Padding="15" BorderThickness="1" BorderBrush="#E0E0E0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <!-- Student Information Panel -->
+                        <Border Background="#2196F3" Padding="10" CornerRadius="3" Margin="0,0,0,10">
+                            <TextBlock Text="👤 STUDENT INFORMATION" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                        </Border>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Left Column -->
+                            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                <!-- Student ID -->
+                                <TextBlock Text="🆔 Student ID" Margin="0,5"/>
+                                <TextBox x:Name="TxtStudentID" Text="STU-2025-001" Padding="8" Margin="0,0,0,10"/>
+
+                                <!-- Full Name -->
+                                <TextBlock Text="👤 Full Name" Margin="0,5"/>
+                                <TextBox x:Name="TxtFullName" Padding="8" Margin="0,0,0,10"/>
+
+                                <!-- Father Name -->
+                                <TextBlock Text="👨 Father Name" Margin="0,5"/>
+                                <TextBox x:Name="TxtFatherName" Padding="8" Margin="0,0,0,10"/>
+
+                                <!-- Email -->
+                                <TextBlock Text="📧 Email" Margin="0,5"/>
+                                <TextBox x:Name="TxtEmail" Padding="8" Margin="0,0,0,10"/>
+
+                                <!-- Phone -->
+                                <TextBlock Text="📞 Phone" Margin="0,5"/>
+                                <TextBox x:Name="TxtPhone" Padding="8" Margin="0,0,0,10"/>
+
+                                <!-- Date of Birth -->
+                                <TextBlock Text="📅 Date of Birth" Margin="0,5"/>
+                                <DatePicker x:Name="DpDateOfBirth" Padding="8" Margin="0,0,0,10"/>
+
+                                <!-- Gender -->
+                                <TextBlock Text="⚧ Gender" Margin="0,5"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+                                    <RadioButton x:Name="RbMale" Content="Male" IsChecked="True" Margin="0,0,20,0"/>
+                                    <RadioButton x:Name="RbFemale" Content="Female"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- Right Column -->
+                            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                <!-- Department -->
+                                <TextBlock Text="🏛️ Department" Margin="0,5"/>
+                                <ComboBox x:Name="CbDepartment" Padding="8" Margin="0,0,0,10">
+                                    <ComboBoxItem Content="Computer Science"/>
+                                    <ComboBoxItem Content="Software Engineering"/>
+                                    <ComboBoxItem Content="Information Technology"/>
+                                    <ComboBoxItem Content="Artificial Intelligence"/>
+                                </ComboBox>
+
+                                <!-- Semester -->
+                                <TextBlock Text="🎓 Semester" Margin="0,5"/>
+                                <ComboBox x:Name="CbSemester" Padding="8" Margin="0,0,0,10">
+                                    <ComboBoxItem Content="1st Semester"/>
+                                    <ComboBoxItem Content="2nd Semester"/>
+                                    <ComboBoxItem Content="3rd Semester"/>
+                                    <ComboBoxItem Content="4th Semester"/>
+                                    <ComboBoxItem Content="5th Semester"/>
+                                    <ComboBoxItem Content="6th Semester"/>
+                                    <ComboBoxItem Content="7th Semester"/>
+                                    <ComboBoxItem Content="8th Semester"/>
+                                </ComboBox>
+
+                                <!-- Blood Group -->
+                                <TextBlock Text="🩸 Blood Group" Margin="0,5"/>
+                                <ComboBox x:Name="CbBloodGroup" Padding="8" Margin="0,0,0,10">
+                                    <ComboBoxItem Content="A+"/>
+                                    <ComboBoxItem Content="A-"/>
+                                    <ComboBoxItem Content="B+"/>
+                                    <ComboBoxItem Content="B-"/>
+                                    <ComboBoxItem Content="O+"/>
+                                    <ComboBoxItem Content="O-"/>
+                                    <ComboBoxItem Content="AB+"/>
+                                    <ComboBoxItem Content="AB-"/>
+                                </ComboBox>
+
+                                <!-- Skills -->
+                                <TextBlock Text="⚙️ Skills" Margin="0,5"/>
+                                <Border BorderBrush="#4CAF50" BorderThickness="1" CornerRadius="3" Padding="10" Background="#F1F8E9" Margin="0,0,0,10">
+                                    <StackPanel>
+                                        <CheckBox x:Name="ChkCSharp" Content="C#" Margin="0,3"/>
+                                        <CheckBox x:Name="ChkJava" Content="Java" Margin="0,3"/>
+                                        <CheckBox x:Name="ChkWebDev" Content="Web Development" Margin="0,3"/>
+                                        <CheckBox x:Name="ChkPython" Content="Python" Margin="0,3"/>
+                                        <CheckBox x:Name="ChkSQL" Content="SQL" Margin="0,3"/>
+                                        <CheckBox x:Name="ChkDataStructures" Content="Data Structures" Margin="0,3"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Registered Students Table -->
+                        <Border Background="#2196F3" Padding="10" CornerRadius="3" Margin="0,20,0,10">
+                            <TextBlock Text="👥 REGISTERED STUDENTS" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                        </Border>
+
+                        <DataGrid x:Name="DgStudents" AutoGenerateColumns="False" Height="200" 
+                                  CanUserAddRows="False" IsReadOnly="True" Background="White"
+                                  GridLinesVisibility="Horizontal" HeadersVisibility="Column"
+                                  AlternatingRowBackground="#F5F5F5">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Binding="{Binding StudentID}" Width="100"/>
+                                <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="150"/>
+                                <DataGridTextColumn Header="Department" Binding="{Binding Department}" Width="180"/>
+                                <DataGridTextColumn Header="Semester" Binding="{Binding Semester}" Width="100"/>
+                                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="200"/>
+                                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="120"/>
+                                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="80"/>
+                                <DataGridTextColumn Header="DOB" Binding="{Binding DOB}" Width="100"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <!-- Search and Filter Section -->
+                        <Grid Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                <Border Background="#00897B" Padding="8" CornerRadius="3" Margin="0,0,0,5">
+                                    <TextBlock Text="🔍 SEARCH STUDENT" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                </Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox x:Name="TxtSearch" Grid.Column="0" Padding="8" Margin="0,0,5,0"/>
+                                    <Button Grid.Column="1" Content="🔍" Padding="10,8" Background="#00897B" Foreground="White" 
+                                            BorderThickness="0" Cursor="Hand" Click="BtnSearch_Click"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <Border Background="#C2185B" Padding="8" CornerRadius="3" Margin="0,0,0,5">
+                                    <TextBlock Text="🎯 FILTER BY DEPARTMENT" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                                </Border>
+                                <ComboBox x:Name="CbFilterDepartment" Padding="8">
+                                    <ComboBoxItem Content="All Departments" IsSelected="True"/>
+                                    <ComboBoxItem Content="Computer Science"/>
+                                    <ComboBoxItem Content="Software Engineering"/>
+                                    <ComboBoxItem Content="Information Technology"/>
+                                    <ComboBoxItem Content="Artificial Intelligence"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <!-- Right Section: Profile Picture & Actions -->
+            <StackPanel Grid.Column="1" Margin="5">
+                <!-- Profile Picture Panel -->
+                <Border Background="White" CornerRadius="5" Padding="15" Margin="0,0,0,10" BorderThickness="1" BorderBrush="#E0E0E0">
+                    <StackPanel>
+                        <Border Background="#9C27B0" Padding="10" CornerRadius="3" Margin="0,0,0,10">
+                            <TextBlock Text="📷 PROFILE PICTURE" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                        </Border>
+                        
+                        <Border Width="150" Height="150" BorderBrush="#9C27B0" BorderThickness="2" CornerRadius="75" 
+                                Margin="0,10" Background="#F3E5F5">
+                            <TextBlock Text="👤" FontSize="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        
+                        <Button Content="📁 Browse Image" Background="#9C27B0" Foreground="White" 
+                                Style="{StaticResource ActionButton}" Click="BtnBrowseImage_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Address Panel -->
+                <Border Background="White" CornerRadius="5" Padding="15" Margin="0,0,0,10" BorderThickness="1" BorderBrush="#E0E0E0">
+                    <StackPanel>
+                        <Border Background="#4CAF50" Padding="10" CornerRadius="3" Margin="0,0,0,10">
+                            <TextBlock Text="📍 ADDRESS" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                        </Border>
+                        <TextBox x:Name="TxtAddress" TextWrapping="Wrap" AcceptsReturn="True" 
+                                 Height="100" Padding="8" VerticalScrollBarVisibility="Auto"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Quick Actions Panel -->
+                <Border Background="White" CornerRadius="5" Padding="15" BorderThickness="1" BorderBrush="#E0E0E0">
+                    <StackPanel>
+                        <Border Background="#FF9800" Padding="10" CornerRadius="3" Margin="0,0,0,10">
+                            <TextBlock Text="⚡ QUICK ACTIONS" Foreground="White" FontWeight="Bold" FontSize="12"/>
+                        </Border>
+                        
+                        <Button Content="💾 Save" Background="#4CAF50" Foreground="White" 
+                                Style="{StaticResource ActionButton}" Click="BtnSave_Click"/>
+                        <Button Content="🔄 Update" Background="#2196F3" Foreground="White" 
+                                Style="{StaticResource ActionButton}" Click="BtnUpdate_Click"/>
+                        <Button Content="🗑️ Delete" Background="#F44336" Foreground="White" 
+                                Style="{StaticResource ActionButton}" Click="BtnDelete_Click"/>
+                        <Button Content="🧹 Clear" Background="#9C27B0" Foreground="White" 
+                                Style="{StaticResource ActionButton}" Click="BtnClear_Click"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <!-- Footer -->
+        <Border Grid.Row="2" Background="#1976D2" Padding="10">
+            <Grid>
+                <TextBlock Text="© 2025 Student Registration System. All rights reserved." 
+                           Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20,0">
+                    <TextBlock Text="Total Students: " Foreground="White" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TxtTotalStudents" Text="5" Foreground="White" FontWeight="Bold" 
+                               VerticalAlignment="Center" Margin="5,0"/>
+                    <TextBlock Text="👥" FontSize="16" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
