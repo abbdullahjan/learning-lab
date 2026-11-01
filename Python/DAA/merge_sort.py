@@ -75,3 +75,23 @@ def merge_sort(A: list) -> None:
 
         # Line 6: Merge(B, C, A)
         merge(B, C, A)
+
+
+if __name__ == "__main__":
+    # Test cases
+    test_cases = [
+        [8, 3, 2, 9, 7, 1, 5, 4],
+        [38, 27, 43, 3, 9, 82, 10],
+        [5, 4, 3, 2, 1],
+        [1, 2, 3, 4, 5],
+        [42],
+        [],
+        [5, -2, 9, 0, -8, 5, 3, 1]
+    ]
+
+    print("--- Merge Sort Algorithm 2 Demonstration ---\n")
+    for arr in test_cases:
+        original = list(arr)
+        merge_sort(arr)
+        print(f"Original: {original}")
+        print(f"Sorted:   {arr}\n")
