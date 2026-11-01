@@ -49,3 +49,29 @@ def merge(B: list, C: list, A: list) -> None:
             A[k] = B[i]
             i += 1
             k += 1
+
+
+def merge_sort(A: list) -> None:
+    """
+    Sorts array A[0..n - 1] in ascending order using MergeSort.
+    Modifies array A in-place according to Algorithm 2.
+    """
+    n = len(A)
+    # Line 1: if n > 1 then
+    if n > 1:
+        mid = n // 2  # ⌊n/2⌋
+
+        # Line 2: copy A[0..⌊n/2⌋ - 1] to B[0..⌊n/2⌋ - 1]
+        B = A[:mid]
+
+        # Line 3: copy A[⌊n/2⌋..n - 1] to C[0..⌈n/2⌉ - 1]
+        C = A[mid:]
+
+        # Line 4: MergeSort(B[0..⌊n/2⌋ - 1])
+        merge_sort(B)
+
+        # Line 5: MergeSort(C[0..⌈n/2⌉ - 1])
+        merge_sort(C)
+
+        # Line 6: Merge(B, C, A)
+        merge(B, C, A)
