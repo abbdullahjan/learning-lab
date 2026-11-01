@@ -15,3 +15,37 @@ Pseudocode from Algorithm 2:
 6     Merge(B, C, A);
 7 end
 """
+
+
+def merge(B: list, C: list, A: list) -> None:
+    """
+    Merge(B[0..p - 1], C[0..q - 1], A[0..p + q - 1])
+    Merges two sorted arrays B and C into sorted array A.
+    """
+    p = len(B)
+    q = len(C)
+    i = 0
+    j = 0
+    k = 0
+
+    while i < p and j < q:
+        if B[i] <= C[j]:
+            A[k] = B[i]
+            i += 1
+        else:
+            A[k] = C[j]
+            j += 1
+        k += 1
+
+    if i == p:
+        # Copy remaining elements of C into A
+        while j < q:
+            A[k] = C[j]
+            j += 1
+            k += 1
+    else:
+        # Copy remaining elements of B into A
+        while i < p:
+            A[k] = B[i]
+            i += 1
+            k += 1
